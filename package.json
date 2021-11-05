@@ -1,0 +1,11 @@
+{
+  "name": "poc-githubapp",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@octokit/auth-app": "^3.6.1",
+    "@octokit/rest": "^18.12.0",
+    "express": "^4.17.1"
+  }
+}
