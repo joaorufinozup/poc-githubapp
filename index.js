@@ -90,4 +90,22 @@ app.post("/createRepo", async (req, res) => {
   }
 });
 
+app.post("/createPullRequest", async (req, res) => {
+  const { owner, repo, head, base, title } = req.body;
+  const octokit = getOctokit();
+
+  try {
+    await octokit.rest.pulls.create({
+      owner,
+      repo,
+      title,
+      head,
+      base,
+    });
+    res.sendStatus(201);
+  } catch (err) {
+    res.status(err.status).send(err);
+  }
+});
+
 app.listen(3000, () => console.log("Server started on port 3000"));
